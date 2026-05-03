@@ -94,6 +94,7 @@ export function FeaturesDeepDive() {
       <div className="container mx-auto px-4 md:px-6">
         <Feature
           title="High-Performance Ecommerce"
+          image="/images/ecommerce-storefront.png"
           description="A storefront built for speed and conversion. We handle the technical heavy lifting so you can focus on your inventory."
           points={[
             "Seamless product listings & filters",
@@ -105,6 +106,7 @@ export function FeaturesDeepDive() {
         <Feature
           reversed
           title="Workshop Command Center"
+          image="/images/workshop-dashboard.png"
           description="Ditch the paper job cards. Manage your workshop throughput from a single, intuitive interface."
           points={[
             "Digital job card creation & tracking",
@@ -113,6 +115,7 @@ export function FeaturesDeepDive() {
             "Full service history for every bike"
           ]}
         />
+
         <Feature
           title="Admin Without the Headache"
           image="/images/admin-dashboard.png"
