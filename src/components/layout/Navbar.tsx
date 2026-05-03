@@ -37,7 +37,7 @@ export function Navbar() {
           {["Features", "Packages", "Demo", "About", "Contact"].map((item) => (
             <Link
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`/${item.toLowerCase()}`}
               className="text-sm font-bold uppercase tracking-widest text-electric hover:text-white transition-colors"
             >
               {item}
