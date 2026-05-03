@@ -62,13 +62,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-black uppercase tracking-widest text-sm text-electric mb-6">Legal</h4>
+            <h4 className="font-black uppercase tracking-widest text-sm text-electric mb-6">Platform</h4>
             <ul className="space-y-4 text-white/60 font-bold uppercase tracking-wider text-sm">
+              <li><Link href="/admin-dashboard" className="hover:text-white transition-colors">Admin Dashboard</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
+
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-white/40 text-sm font-bold uppercase tracking-widest gap-4">
