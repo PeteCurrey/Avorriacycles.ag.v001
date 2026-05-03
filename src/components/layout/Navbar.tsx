@@ -28,8 +28,14 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-1 group">
-          <span className="text-xl md:text-2xl font-heading font-bold tracking-tighter uppercase flex items-center">
-            Avorria <span className="text-primary/60 group-hover:text-electric transition-colors">/</span> Cycle
+          <span className={cn(
+            "text-xl md:text-2xl font-heading font-bold tracking-tighter uppercase flex items-center transition-colors",
+            isScrolled ? "text-navy" : "text-white"
+          )}>
+            Avorria <span className={cn(
+              "transition-colors mx-1",
+              isScrolled ? "text-navy/40 group-hover:text-electric" : "text-white/60 group-hover:text-electric"
+            )}>/</span> Cycle
           </span>
         </Link>
 
@@ -38,7 +44,12 @@ export function Navbar() {
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
-              className="text-sm font-bold uppercase tracking-widest text-electric hover:text-white transition-colors"
+              className={cn(
+                "text-sm font-bold uppercase tracking-widest transition-colors",
+                isScrolled 
+                  ? "text-navy hover:text-electric" 
+                  : "text-electric hover:text-white"
+              )}
             >
               {item}
             </Link>
