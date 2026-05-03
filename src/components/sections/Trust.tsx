@@ -26,7 +26,7 @@ export function Trust() {
 
   return (
     <section className="py-24 bg-secondary">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Trust Bar */}
         <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-24 border-y border-border py-12">
           {trustItems.map((item, i) => (

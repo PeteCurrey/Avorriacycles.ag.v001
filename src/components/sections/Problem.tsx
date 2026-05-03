@@ -20,7 +20,7 @@ export function Problem() {
 
   return (
     <section id="problem" className="py-24 bg-white">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16">
           <h2 className="text-4xl md:text-6xl font-black text-navy leading-none mb-4">
             The playing field <br />

@@ -12,7 +12,7 @@ export function LiveDemo() {
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-electric/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container relative z-10 px-4 md:px-6">
+      <div className="container mx-auto relative z-10 px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1">
             <motion.div

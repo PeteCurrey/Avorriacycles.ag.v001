@@ -38,7 +38,7 @@ export function Navbar() {
             <Link
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium hover:text-electric transition-colors"
+              className="text-sm font-bold uppercase tracking-widest text-electric hover:text-white transition-colors"
             >
               {item}
             </Link>

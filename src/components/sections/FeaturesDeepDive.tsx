@@ -78,7 +78,7 @@ function Feature({ title, description, points, reversed }: FeatureProps) {
 export function FeaturesDeepDive() {
   return (
     <section className="py-24 bg-white">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <Feature
           title="High-Performance Ecommerce"
           description="A storefront built for speed and conversion. We handle the technical heavy lifting so you can focus on your inventory."

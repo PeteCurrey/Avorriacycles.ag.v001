@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-navy text-white">
       {/* CTA Banner */}
-      <div className="container px-4 md:px-6 py-24 border-b border-white/5">
+      <div className="container mx-auto px-4 md:px-6 py-24 border-b border-white/5">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-7xl font-black mb-6 uppercase leading-none">
             Ready to take your <br />
@@ -33,7 +33,7 @@ export function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="container px-4 md:px-6 py-16">
+      <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
             <div className="text-3xl font-heading font-black tracking-tighter uppercase mb-6">

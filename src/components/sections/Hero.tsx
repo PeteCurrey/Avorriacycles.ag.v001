@@ -22,7 +22,7 @@ export function Hero() {
         </svg>
       </div>
 
-      <div className="container relative z-10 px-4 md:px-6">
+      <div className="container mx-auto relative z-10 px-4 md:px-6">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
