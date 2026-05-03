@@ -16,6 +16,20 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   title: "Avorria Cycle | Digital Ecosystems for Local Bike Shops",
   description: "We build complete digital ecosystems for independent bike shops — ecommerce website, workshop management, and local SEO.",
+  metadataBase: new URL("https://cycles.avorria.com"),
+  openGraph: {
+    title: "Avorria Cycle | Digital Ecosystems for Local Bike Shops",
+    description: "We build complete digital ecosystems for independent bike shops — ecommerce website, workshop management, and local SEO.",
+    url: "https://cycles.avorria.com",
+    siteName: "Avorria Cycle",
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Avorria Cycle | Digital Ecosystems for Local Bike Shops",
+    description: "We build complete digital ecosystems for independent bike shops.",
+  },
 };
 
 export default function RootLayout({

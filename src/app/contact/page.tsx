@@ -83,7 +83,7 @@ export default function ContactPage() {
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-black uppercase text-navy/50 tracking-widest ml-1">Email Address</label>
-                       <Input placeholder="john@example.com" type="email" className="bg-white border-navy/10 py-6" />
+                       <Input placeholder="john@cycles.avorria.com" type="email" className="bg-white border-navy/10 py-6" />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-black uppercase text-navy/50 tracking-widest ml-1">Shop Name</label>
