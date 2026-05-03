@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function LiveDemo() {
@@ -45,7 +46,6 @@ export function LiveDemo() {
             </motion.div>
           </div>
 
-
           <div className="flex-1 w-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -61,13 +61,13 @@ export function LiveDemo() {
                      <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
                   </div>
                   <div className="relative h-full bg-[#111]">
-                    {/* Placeholder for screenshot */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-navy">
-                        <div className="text-center">
-                           <div className="text-4xl font-heading font-black text-electric mb-2 tracking-tighter italic">RIDGELINE</div>
-                           <div className="text-xs uppercase tracking-widest text-white/40">Demo Environment</div>
-                        </div>
-                    </div>
+                    <Image 
+                      src="/images/demo-site.png" 
+                      alt="Ridgeline Cycles Demo" 
+                      fill 
+                      className="object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                    <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors" />
                   </div>
                </div>
                {/* Hover Effect */}
@@ -79,3 +79,4 @@ export function LiveDemo() {
     </section>
   );
 }
+

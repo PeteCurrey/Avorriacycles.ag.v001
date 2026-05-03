@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/layout/PageHero";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { 
   Shield, 
   BarChart, 
@@ -89,6 +90,27 @@ export default function AdminDashboardPage() {
                    </Card>
                 </motion.div>
              ))}
+          </div>
+
+          <div className="mb-24">
+             <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-5xl font-black uppercase text-navy">Visual Interface</h2>
+                <p className="text-lg text-muted-grey mt-4">Clean, high-fidelity design optimized for shop owners and mechanics.</p>
+             </div>
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.98 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               className="relative aspect-video rounded-xl overflow-hidden border-4 border-navy shadow-2xl group"
+             >
+                <Image 
+                  src="/images/admin-dashboard.png" 
+                  alt="Avorria Admin Interface" 
+                  fill 
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors" />
+             </motion.div>
           </div>
 
           <div className="bg-navy rounded-2xl p-12 text-white relative overflow-hidden">

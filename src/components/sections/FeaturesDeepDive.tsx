@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface FeatureProps {
@@ -9,9 +10,10 @@ interface FeatureProps {
   description: string;
   points: string[];
   reversed?: boolean;
+  image?: string;
 }
 
-function Feature({ title, description, points, reversed }: FeatureProps) {
+function Feature({ title, description, points, reversed, image }: FeatureProps) {
   return (
     <div className={cn(
       "flex flex-col md:flex-row gap-12 items-center mb-24 last:mb-0",
@@ -31,18 +33,29 @@ function Feature({ title, description, points, reversed }: FeatureProps) {
             <div className="w-2 h-2 rounded-full bg-green-400" />
           </div>
           {/* Content Placeholder */}
-          <div className="p-8 h-full bg-secondary/20 flex flex-col gap-4">
-             <div className="h-4 w-1/3 bg-muted rounded animate-pulse" />
-             <div className="grid grid-cols-3 gap-4 h-full">
-                <div className="col-span-2 bg-white rounded border shadow-sm p-4">
-                  <div className="h-40 bg-muted/30 rounded" />
+          <div className="relative h-full bg-secondary/20">
+             {image ? (
+                <Image 
+                  src={image} 
+                  alt={title} 
+                  fill 
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500" 
+                />
+             ) : (
+                <div className="p-8 h-full flex flex-col gap-4">
+                  <div className="h-4 w-1/3 bg-muted rounded animate-pulse" />
+                  <div className="grid grid-cols-3 gap-4 h-full">
+                      <div className="col-span-2 bg-white rounded border shadow-sm p-4">
+                        <div className="h-40 bg-muted/30 rounded" />
+                      </div>
+                      <div className="bg-white rounded border shadow-sm p-4 flex flex-col gap-2">
+                        <div className="h-4 bg-muted rounded" />
+                        <div className="h-4 bg-muted rounded" />
+                        <div className="h-10 bg-electric rounded mt-auto" />
+                      </div>
+                  </div>
                 </div>
-                <div className="bg-white rounded border shadow-sm p-4 flex flex-col gap-2">
-                   <div className="h-4 bg-muted rounded" />
-                   <div className="h-4 bg-muted rounded" />
-                   <div className="h-10 bg-electric rounded mt-auto" />
-                </div>
-             </div>
+             )}
           </div>
           {/* Subtle overlay */}
           <div className="absolute inset-0 bg-navy/5 group-hover:bg-navy/0 transition-colors pointer-events-none" />
@@ -102,6 +115,7 @@ export function FeaturesDeepDive() {
         />
         <Feature
           title="Admin Without the Headache"
+          image="/images/admin-dashboard.png"
           description="Everything you need to run your digital business, accessible from any device. No coding required."
           points={[
             "Simple content management",
@@ -114,3 +128,4 @@ export function FeaturesDeepDive() {
     </section>
   );
 }
+

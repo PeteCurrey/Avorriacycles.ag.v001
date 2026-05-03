@@ -115,11 +115,14 @@ export default function FeaturesPage() {
                  </div>
               </div>
               <div className="flex-1 w-full">
-                 <div className="relative rounded-lg border-2 border-navy/10 shadow-2xl overflow-hidden aspect-video">
-                    {/* Placeholder for the generated image if I were to use it here */}
-                    <div className="absolute inset-0 bg-navy flex items-center justify-center">
-                       <div className="text-electric font-black italic text-2xl uppercase tracking-tighter">Avorria Dashboard</div>
-                    </div>
+                 <div className="relative rounded-lg border-2 border-navy/10 shadow-2xl overflow-hidden aspect-video group">
+                    <Image 
+                      src="/images/dashboard-v1.png" 
+                      alt="Avorria Dashboard" 
+                      fill 
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-navy/5 group-hover:bg-transparent transition-colors" />
                  </div>
               </div>
            </div>

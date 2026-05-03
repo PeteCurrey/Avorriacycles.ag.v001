@@ -36,11 +36,14 @@ export default function AboutPage() {
                     We don't just build websites; we build business infrastructure. Our team consists of digital strategists, developers, and—most importantly—cyclists who understand the nuances of a local bike shop.
                  </p>
               </div>
-              <div className="relative aspect-square bg-navy rounded-lg overflow-hidden border-8 border-secondary shadow-xl">
-                 {/* Brand Image Placeholder */}
-                 <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-                    <div className="text-electric font-black text-4xl uppercase tracking-tighter leading-none italic">Avorria <br/> Digital <br/> Excellence</div>
-                 </div>
+              <div className="relative aspect-square bg-navy rounded-lg overflow-hidden border-8 border-secondary shadow-xl group">
+                 <Image 
+                   src="/images/about-hero.png" 
+                   alt="Avorria HQ" 
+                   fill 
+                   className="object-cover group-hover:scale-105 transition-transform duration-500"
+                 />
+                 <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors" />
               </div>
            </div>
 
