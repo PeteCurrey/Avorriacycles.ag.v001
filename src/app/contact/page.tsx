@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/layout/PageHero";
@@ -10,7 +11,36 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
+  };
+
   return (
+
     <main className="min-h-screen">
       <Navbar />
       <PageHero 
@@ -69,35 +99,51 @@ export default function ContactPage() {
               </div>
 
               <div>
-                 <form className="space-y-6 bg-secondary p-10 rounded-lg border border-navy/5 shadow-sm">
+                 <form onSubmit={handleSubmit} className="space-y-6 bg-secondary p-10 rounded-lg border border-navy/5 shadow-sm">
                     <h3 className="text-2xl font-black text-navy uppercase mb-6">Send a Message</h3>
+                    
+                    {status === 'success' && (
+                      <div className="p-4 bg-green-50 text-green-700 border border-green-200 rounded-md mb-6">
+                        <p className="font-bold">Message sent successfully!</p>
+                        <p className="text-sm">We'll be in touch with you shortly.</p>
+                      </div>
+                    )}
+
+                    {status === 'error' && (
+                      <div className="p-4 bg-red-50 text-red-700 border border-red-200 rounded-md mb-6">
+                        <p className="font-bold">Error sending message.</p>
+                        <p className="text-sm">Please try again or email us directly.</p>
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                        <div className="space-y-2">
                           <label className="text-xs font-black uppercase text-navy/50 tracking-widest ml-1">First Name</label>
-                          <Input placeholder="John" className="bg-white border-navy/10 py-6" />
+                          <Input name="firstName" placeholder="John" required disabled={status === 'loading'} className="bg-white border-navy/10 py-6" />
                        </div>
                        <div className="space-y-2">
                           <label className="text-xs font-black uppercase text-navy/50 tracking-widest ml-1">Last Name</label>
-                          <Input placeholder="Doe" className="bg-white border-navy/10 py-6" />
+                          <Input name="lastName" placeholder="Doe" required disabled={status === 'loading'} className="bg-white border-navy/10 py-6" />
                        </div>
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-black uppercase text-navy/50 tracking-widest ml-1">Email Address</label>
-                       <Input placeholder="john@cycles.avorria.com" type="email" className="bg-white border-navy/10 py-6" />
+                       <Input name="email" placeholder="john@cycles.avorria.com" type="email" required disabled={status === 'loading'} className="bg-white border-navy/10 py-6" />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-black uppercase text-navy/50 tracking-widest ml-1">Shop Name</label>
-                       <Input placeholder="Ridgeline Cycles" className="bg-white border-navy/10 py-6" />
+                       <Input name="shopName" placeholder="Ridgeline Cycles" disabled={status === 'loading'} className="bg-white border-navy/10 py-6" />
                     </div>
                     <div className="space-y-2">
                        <label className="text-xs font-black uppercase text-navy/50 tracking-widest ml-1">Message</label>
-                       <Textarea placeholder="How can we help?" className="bg-white border-navy/10 min-h-[150px]" />
+                       <Textarea name="message" placeholder="How can we help?" required disabled={status === 'loading'} className="bg-white border-navy/10 min-h-[150px]" />
                     </div>
-                    <Button className="w-full bg-navy text-white font-black py-8 uppercase tracking-widest hover:bg-navy/90 text-lg">
-                       Send Message
+                    <Button type="submit" disabled={status === 'loading'} className="w-full bg-navy text-white font-black py-8 uppercase tracking-widest hover:bg-navy/90 text-lg">
+                       {status === 'loading' ? 'Sending...' : 'Send Message'}
                     </Button>
                  </form>
               </div>
+
            </div>
         </div>
       </section>
