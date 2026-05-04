@@ -26,9 +26,19 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
     title: "Avorria Cycle | Digital Ecosystems for Local Bike Shops",
     description: "We build complete digital ecosystems for independent bike shops.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
